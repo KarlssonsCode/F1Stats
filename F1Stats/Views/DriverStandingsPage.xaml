@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="F1Stats.Views.DriverStandingsPage"
+             Title="DriverStandingsPage">
+
+    <ScrollView>
+        <HorizontalStackLayout>
+            <CollectionView
+                ItemsSource="{Binding CurrentDriverStandings}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            Padding="20"
+                            RowDefinitions="20,*"
+                            ColumnDefinitions="250,*"
+                            ColumnSpacing="20"
+                            BackgroundColor="Grey">
+                            <Label
+                                Text="{Binding Position}"
+                                Grid.Column="0"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center"
+                                />
+                            <Label
+                                Text="{Binding DriverName}"                               
+                                Grid.Column="0"
+                                HorizontalOptions="Center"
+                                />
+                            <Label
+                                Text="{Binding Points}"
+                                Grid.Column="0"
+                                HorizontalOptions="End"
+                                VerticalOptions="Center"/>
+                            <Label
+                                Text="{Binding Wins}"
+                                Grid.Column="1"
+                                HorizontalOptions="Center"
+                                VerticalOptions="End"
+                                />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </HorizontalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -3,33 +3,72 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="F1Stats.Views.DriversPage"
              Title="DriversPage">
-    <VerticalStackLayout>
-        <CollectionView
-            ItemsSource="{Binding Drivers}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid Padding="10"
-                              RowDefinitions="Auto, *"
-                              ColumnDefinitions="200,*"
+    <ScrollView>
+        <VerticalStackLayout>
+            <ImageButton
+                Source="second_logo.png"    
+                VerticalOptions="Start"
+                HeightRequest="100"
+                WidthRequest="200"
+                Clicked="GoBack"/>
+            <CollectionView
+                ItemsSource="{Binding CurrentDrivers}"
+                SelectionMode="Single"
+                SelectedItem="OnClickedViewSelectedDriver">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                                     Span="4"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="20"                            
+                              RowDefinitions="250, *"
+                              ColumnDefinitions="250,1"
                               ColumnSpacing="20">
-                            <!--<Image Grid.RowSpan="2"
-                                    Source="{Binding DriverId, StringFormat='{0}.png'}"
-                                    Aspect="Fill"
-                                    HeightRequest="250"/>-->
-                            <Label Text="{Binding FamilyName}"/>
-
+                            <Image 
+                                Source="{Binding DriverId, StringFormat='{0}.png'}"
+                                BackgroundColor="DimGrey" 
+                                Aspect="Fill"                               
+                                HeightRequest="250"/>
+                            <Label
+                                Text="{Binding FamilyName}"
+                                TextColor="MediumPurple"
+                                HeightRequest="50"
+                                Grid.Column="0"
+                                Grid.Row="1"
+                                BackgroundColor="LightGrey"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                />
+                            <Label
+                                Text="{Binding Nationality}"
+                                TextColor="White"
+                                HorizontalOptions="End"
+                                Padding="10"
+                                FontSize="13"
+                                FontAttributes="Italic"/>
+                            <Label
+                                Text="{Binding PermanentNumber}"
+                                Grid.Column="0"
+                                HorizontalTextAlignment="Start"
+                                Padding="30"
+                                FontSize="30"
+                                FontAttributes="Italic"
+                                TextDecorations="Underline"
+                                TextColor="White"                               
+                                />
                         </Grid>
 
-                    </ViewCell>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
 
 
 
-        </CollectionView>
+            </CollectionView>
 
 
 
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

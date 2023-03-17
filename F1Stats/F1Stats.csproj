@@ -48,26 +48,48 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="ViewModels\DriverStandingsPageViewModel.xaml.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Remove="ViewModels\DriverStandingsPageViewModel.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\Images\albon.png" />
+	  <None Remove="Resources\Images\alfa.png" />
+	  <None Remove="Resources\Images\alonso.png" />
+	  <None Remove="Resources\Images\alphatauri.png" />
+	  <None Remove="Resources\Images\alpine.png" />
+	  <None Remove="Resources\Images\aston_martin.png" />
 	  <None Remove="Resources\Images\bottas.png" />
+	  <None Remove="Resources\Images\constructors.png" />
 	  <None Remove="Resources\Images\de_vries.png" />
+	  <None Remove="Resources\Images\drivers.png" />
+	  <None Remove="Resources\Images\drivers2.png" />
+	  <None Remove="Resources\Images\ferrari.png" />
 	  <None Remove="Resources\Images\gasly.png" />
+	  <None Remove="Resources\Images\haas.png" />
 	  <None Remove="Resources\Images\hamilton.png" />
 	  <None Remove="Resources\Images\hulkenberg.png" />
 	  <None Remove="Resources\Images\kevin_magnussen.png" />
 	  <None Remove="Resources\Images\leclerc.png" />
 	  <None Remove="Resources\Images\logo.png" />
 	  <None Remove="Resources\Images\max_verstappen.png" />
+	  <None Remove="Resources\Images\mclaren.png" />
+	  <None Remove="Resources\Images\mercedes.png" />
 	  <None Remove="Resources\Images\norris.png" />
 	  <None Remove="Resources\Images\ocon.png" />
 	  <None Remove="Resources\Images\perez.png" />
 	  <None Remove="Resources\Images\piastri.png" />
+	  <None Remove="Resources\Images\red_bull.png" />
 	  <None Remove="Resources\Images\russell.png" />
 	  <None Remove="Resources\Images\sainz.png" />
 	  <None Remove="Resources\Images\sargeant.png" />
 	  <None Remove="Resources\Images\second_logo.png" />
 	  <None Remove="Resources\Images\stroll.png" />
 	  <None Remove="Resources\Images\tsunoda.png" />
+	  <None Remove="Resources\Images\williams.png" />
 	  <None Remove="Resources\Images\zhou.png" />
 	</ItemGroup>
 
@@ -77,7 +99,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\ConstructorsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ConstructorStandingsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\DriverPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\DriversPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\DriverStandingsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SchedulePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

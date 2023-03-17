@@ -4,17 +4,20 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using CommunityToolkit.Mvvm.Input;
+using Newtonsoft.Json;
 
 namespace F1Stats.ViewModels
 {
     internal partial class DriversPageViewModel : ObservableObject
     {
         [ObservableProperty]
-        public ObservableCollection<Models.Drivers> drivers;
+        public ObservableCollection<Models.Driver> currentDrivers;
         [ObservableProperty]
         string driverId;
         [ObservableProperty]
@@ -35,41 +38,25 @@ namespace F1Stats.ViewModels
 
         public DriversPageViewModel()
         {
-            Drivers = new ObservableCollection<Models.Drivers>();
-            var task = Task.Run(() => GetDriversAsync(Drivers));
+            CurrentDrivers = new ObservableCollection<Models.Driver>();
+            var task = Task.Run(() => GetDriversAsync(CurrentDrivers));
 
         }
-
-        //public static async Task<ObservableCollection<Models.Driver>> GetDriversAsync(ObservableCollection<Models.Driver> drivers)
-        //{
-        //    var client = new HttpClient();
-        //    client.BaseAddress = new Uri("https://ergast.com/");
-        //    Models.Driver driver = null;
-
-        //    HttpResponseMessage response = await client.GetAsync("api/f1/current/drivers");
-        //    while (response.IsSuccessStatusCode)
-        //    {
-        //        string responseString = await response.Content.ReadAsStringAsync();
-        //        driver = JsonSerializer.Deserialize<Models.Driver>(responseString);
-        //        driver.PermanentNumber = responseString;
-        //        drivers.Add(driver);
-
-
-        //    }
-        //    return drivers;
-        //}
-        public static async Task<ObservableCollection<Models.Drivers>> GetDriversAsync(ObservableCollection<Models.Drivers> driversCollection)
+        public static async Task<ObservableCollection<Models.Driver>> GetDriversAsync(ObservableCollection<Models.Driver> driversCollection)
         {
             var client = new HttpClient();
-            Models.Driver drivers = null;
+
 
             HttpResponseMessage response = await client.GetAsync("https://ergast.com/api/f1/current/drivers.json");
             if (response.IsSuccessStatusCode)
             {
                 string responseResult = await response.Content.ReadAsStringAsync();
-                //driversCollection = JsonSerializer.Deserialize<Models.Driver>(responseResult);
-                driversCollection = JsonSerializer.Deserialize<ObservableCollection<Models.Drivers>>(responseResult);
-                int x = 1;
+                Drivers driversData = JsonConvert.DeserializeObject<Drivers>(responseResult);
+                foreach (Driver driver in driversData.MRData.DriverTable.Drivers)
+                {
+                    driversCollection.Add(driver);
+                }
+
             }
             return driversCollection;
         }

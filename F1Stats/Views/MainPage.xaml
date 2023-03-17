@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="F1Stats.MainPage">
+             x:Class="F1Stats.MainPage"
+             BackgroundColor="Grey">
     <ScrollView>
 
         <HorizontalStackLayout>
@@ -12,28 +13,32 @@
                 HeightRequest="100"
                 WidthRequest="200"/>
 
-            <Button            
-            Text="Drivers"
+            <ImageButton            
+            Source="drivers2.png"
             Clicked="OnClickedGoDrivers"
             HeightRequest="300"
             WidthRequest="300"/>
+            
             <Button
-            Text="Driver Standings"
-            HeightRequest="300"
-            WidthRequest="300"/>
+                Text="Driver Standings"
+                Clicked="OnClickedGoDriverStandings"
+                HeightRequest="300"
+                WidthRequest="300"/>
 
             <Button
-            Text="Schedule"
+            Text="Schedule (Currently Not Working)"
             HeightRequest="300"
             WidthRequest="300"/>
+            <ImageButton
+                Source="constructors.png"
+                Clicked="OnClickedGoConstructors"
+                HeightRequest="300"
+                WidthRequest="300"/>
             <Button
-            Text="Constructors"
-            HeightRequest="300"
-            WidthRequest="300"/>
-            <Button
-            Text="Constructor Standings"
-            HeightRequest="300"
-            WidthRequest="300"/>
+                Text="Constructor Standings"
+                Clicked="OnClickedGoConstructorStandings"
+                HeightRequest="300"
+                WidthRequest="300"/>
 
 
 

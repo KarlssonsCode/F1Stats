@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="F1Stats.Views.ConstructorStandingsPage"
+             Title="ConstructorStandingsPage">
+    <ScrollView>
+        <HorizontalStackLayout>
+            <CollectionView
+                ItemsSource="{Binding CurrentConstructorStandings}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            Padding="20"
+                            RowDefinitions="150,*"
+                            ColumnDefinitions="250,*"
+                            ColumnSpacing="20"                            
+                            BackgroundColor="White">
+                            
+                            <Label
+                                Text="{Binding Position}"
+                                Grid.Column="0"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center"
+                                TextColor="Black"
+                                />
+                            <Image
+                                Source="{Binding ConstructorId, StringFormat='{0}.png'}"                               
+                                MaximumHeightRequest="100"
+                                MaximumWidthRequest="150"
+                                Aspect="Fill"/>
+                            <Label
+                                Text="{Binding ConstructorName}"            
+                                TextColor="Black"
+                                Grid.Column="0"
+                                HorizontalOptions="Center"
+                                VerticalOptions="End"
+                                />
+                            <Label
+                                Text="{Binding Points}"
+                                TextColor="Black"
+                                Grid.Column="0"
+                                HorizontalOptions="End"
+                                VerticalOptions="Center"/>
+                            <Label
+                                Text="{Binding Wins}"
+                                Grid.Column="1"
+                                TextColor="Black"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </HorizontalStackLayout>
+    </ScrollView>
+</ContentPage>

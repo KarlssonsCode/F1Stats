@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="F1Stats.Views.ConstructorsPage"
+             Title="ConstructorsPage">
+    <VerticalStackLayout>
+        <ImageButton
+                Source="second_logo.png"    
+                VerticalOptions="Start"
+                HeightRequest="100"
+                WidthRequest="200"
+                Clicked="GoBack"/>
+        <CollectionView
+                ItemsSource="{Binding Constructors}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                     Span="5"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <Grid Padding="20"                            
+                              RowDefinitions="250, *"
+                              ColumnDefinitions="250,*"
+                              ColumnSpacing="20">
+
+                        <Image 
+                                Source="{Binding constructorId, StringFormat='{0}.png'}"
+                                BackgroundColor="White" 
+                                Aspect="Fill"                               
+                                HeightRequest="250"
+                                WidthRequest="250"/>
+                        <Label 
+                                Text="{Binding name}"
+                                HeightRequest="50"                                
+                                Grid.Column="0"
+                                Grid.Row="1"                               
+                                />
+                        <Label
+                            Text="{Binding nationality}"
+                            HeightRequest="50"
+                            HorizontalOptions="End"
+                            Grid.Row="1"/>
+
+                    </Grid>
+
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+
+
+        </CollectionView>
+
+
+
+    </VerticalStackLayout>
+</ContentPage>
