@@ -27,5 +27,11 @@ public partial class MainPage : ContentPage
     {
         await Navigation.PushAsync(new Views.ConstructorStandingsPage());
     }
+
+    private async void OnClickedGoSingleton(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new Views.SingletonPage());
+    }
+
 }
 

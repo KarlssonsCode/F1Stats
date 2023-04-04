@@ -39,6 +39,11 @@
                 Clicked="OnClickedGoConstructorStandings"
                 HeightRequest="300"
                 WidthRequest="300"/>
+            <Button
+                Text="Singleton"
+                Clicked="OnClickedGoSingleton"
+                HeightRequest="300"
+                WidthRequest="300"/>
 
 
 
